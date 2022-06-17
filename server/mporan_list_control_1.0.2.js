@@ -18,7 +18,7 @@ function mporan_list_control(itemId, a) {
 			typeHiddenTrue = typeHidden.indexOf(controlType) > -1,
 			toggleOffIconClass,
 			toggleOnIconClass;
-
+		
 		if (controlType == "plus-circle-checked") {
 			toggleOffIconClass = 'fa-plus-circle-o';
 			toggleOnIconClass = 'fa-check-circle';
@@ -49,7 +49,12 @@ function mporan_list_control(itemId, a) {
 			} else {
 				seperatorClass = " lcp__ctrl--sep-n "
 			}
-
+		} else if ( $region.find("ul").hasClass(".a-CardView-items")) {
+           		containerCls = ".a-CardView-items";
+			itemCls = ".a-CardView-item";
+			itemWrapCls = ".a-CardView";
+        
+		
 		} else {			
 			apex.debug.error("ERROR for List Control plug-in page item " + itemId + ": Parent region must have a list or card template. See plug-in docs for instructions."); 
 		}
